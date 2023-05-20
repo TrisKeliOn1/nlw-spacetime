@@ -20,8 +20,8 @@ const StyledStripes = styled(Stripes)
 
 export default function Layout() {
   const [isUserAuthenticated, setIsUserAuthenticated] = useState<
-    null | boolean
-  >(null)
+    null | boolean>
+    (null)
 
   const [hasLoadedFonts] = useFonts({
     Roboto_400Regular,
@@ -43,8 +43,7 @@ export default function Layout() {
     <ImageBackground
       source={blurBg}
       className="relative flex-1 bg-gray-900"
-      imageStyle={{ position: 'absolute', left: '-100%' }}
-    >
+      imageStyle={{ position: 'absolute', left: '-100%' }}>
       <StyledStripes className="absolute left-2" />
       <StatusBar style="light" translucent />
 
@@ -52,11 +51,11 @@ export default function Layout() {
         screenOptions={{
           headerShown: false,
           contentStyle: { backgroundColor: 'transparent' },
-        }}
-      >
+          animation: 'fade',
+        }}>
         <Stack.Screen name="index" redirect={isUserAuthenticated} />
-        <Stack.Screen name="new" />
         <Stack.Screen name="memories" />
+        <Stack.Screen name="new" />
       </Stack>
     </ImageBackground>
   )
